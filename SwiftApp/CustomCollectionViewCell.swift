@@ -11,11 +11,11 @@ import UIKit
 class CustomCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var iconImageView: UIImageView!
-    
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDEscription: UILabel!
     var imageURL:String?
     
+    //load the content of each cell based on the parsed info received from the controller
     func loadCell(withData responseData: ResponseData) {
         self.cellTitle.text = responseData.title
         self.cellDEscription.text = responseData.description
@@ -30,6 +30,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    //method to get the data of the image URL in the response
     func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let httpResponse = response as? HTTPURLResponse {
@@ -41,6 +42,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
             }.resume()
     }
     
+    //method to download the image asynchronously and then load in the imageView
     func downloadImageAndLoadFrom(imageUrl: URL) {
         getDataFromUrl(url: imageUrl) { data, response, error in
             guard let data = data, error == nil else {
@@ -53,10 +55,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    //method to load a default image if in any case image from server doesn't exists
     func loadDefaultImage() {
         DispatchQueue.main.async() {
             self.iconImageView.image = UIImage(named: "default")
         }
     }
-    
 }
