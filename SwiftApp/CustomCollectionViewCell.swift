@@ -13,6 +13,11 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     
     @IBOutlet weak var cellTitle: UILabel!
-    
     @IBOutlet weak var cellDEscription: UILabel!
+    
+    func loadCell(withData responseData: ResponseData) {
+        self.cellTitle.text = responseData.title
+        self.cellDEscription.text = responseData.description
+    }
+    
 }
