@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model class mapping the json response
 class ResponseData {
     var iconImageURL : String?
     var title : String?

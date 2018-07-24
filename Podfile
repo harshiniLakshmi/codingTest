@@ -10,5 +10,4 @@ target 'SwiftApp' do
 
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON'  
-  pod 'AlamofireImage', '~> 3.3'
 end

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
+import Alamofire //library to make api call
+import SwiftyJSON //to parse the json response
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -21,13 +21,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         serviceCall(requestURL: apiUrl)
     }
-
+    
+    //method to make service call to get the response
     func serviceCall(requestURL: URL) {
         var urlRequest = URLRequest(url: requestURL)
         urlRequest.httpMethod = "GET"
         Alamofire.request(urlRequest)
             .responseString { response in
-                
                 switch response.result {
                 case .success(let value):
                     let json = JSON.init(parseJSON:value)
@@ -38,6 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    //Parser, parse the json response and load it to an array using the model
     func parseJSONResponse(jsonData: SwiftyJSON.JSON) {
         let mainTitle = jsonData["title"].stringValue
         self.navigationItem.title = mainTitle
@@ -45,7 +46,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let title = eachItem["title"].stringValue
             let description = eachItem["description"].stringValue
             let imageURL = eachItem["imageHref"].stringValue
-            if (title.count > 0 || description.count > 0 || imageURL.count > 0) {
+            if (!title.isEmpty || !description.isEmpty || !imageURL.isEmpty) {
                 let combinedItem = ResponseData(imageURL: imageURL, withTitle: title, andDescription: description)
                 self.parsedJSONArray.append(combinedItem)
             }
@@ -53,22 +54,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.mainCollectionView!.reloadData()
     }
     
+    // MARK: UICollectionView delegate methods
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.parsedJSONArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
         cell.loadCell(withData: self.parsedJSONArray[indexPath.row] as! ResponseData)
         return cell
     }
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-
