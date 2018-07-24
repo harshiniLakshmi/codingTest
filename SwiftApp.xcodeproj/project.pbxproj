@@ -15,6 +15,7 @@
 		294F893E210652BC00EF50F1 /* SwiftAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F893D210652BC00EF50F1 /* SwiftAppTests.swift */; };
 		294F8949210652BC00EF50F1 /* SwiftAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F8948210652BC00EF50F1 /* SwiftAppUITests.swift */; };
 		294F895F21076BD300EF50F1 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */; };
+		294F896121076FC700EF50F1 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F896021076FC700EF50F1 /* ResponseData.swift */; };
 		7672DE26C151691A418F237F /* Pods_SwiftApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995BECBC82D300AD313548A3 /* Pods_SwiftApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		294F8948210652BC00EF50F1 /* SwiftAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppUITests.swift; sourceTree = "<group>"; };
 		294F894A210652BC00EF50F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		294F896021076FC700EF50F1 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		995BECBC82D300AD313548A3 /* Pods_SwiftApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89653FE45C5A484E9C478E3 /* Pods-SwiftApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftApp/Pods-SwiftApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				294F8931210652BC00EF50F1 /* LaunchScreen.storyboard */,
 				294F8934210652BC00EF50F1 /* Info.plist */,
 				294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */,
+				294F896021076FC700EF50F1 /* ResponseData.swift */,
 			);
 			path = SwiftApp;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				294F892B210652BB00EF50F1 /* ViewController.swift in Sources */,
 				294F895F21076BD300EF50F1 /* CustomCollectionViewCell.swift in Sources */,
+				294F896121076FC700EF50F1 /* ResponseData.swift in Sources */,
 				294F8929210652BB00EF50F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
