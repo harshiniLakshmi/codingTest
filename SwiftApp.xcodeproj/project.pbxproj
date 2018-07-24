@@ -14,6 +14,7 @@
 		294F8933210652BC00EF50F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 294F8931210652BC00EF50F1 /* LaunchScreen.storyboard */; };
 		294F893E210652BC00EF50F1 /* SwiftAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F893D210652BC00EF50F1 /* SwiftAppTests.swift */; };
 		294F8949210652BC00EF50F1 /* SwiftAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F8948210652BC00EF50F1 /* SwiftAppUITests.swift */; };
+		294F895F21076BD300EF50F1 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */; };
 		7672DE26C151691A418F237F /* Pods_SwiftApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995BECBC82D300AD313548A3 /* Pods_SwiftApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		294F8944210652BC00EF50F1 /* SwiftAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		294F8948210652BC00EF50F1 /* SwiftAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppUITests.swift; sourceTree = "<group>"; };
 		294F894A210652BC00EF50F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		995BECBC82D300AD313548A3 /* Pods_SwiftApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89653FE45C5A484E9C478E3 /* Pods-SwiftApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftApp/Pods-SwiftApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 				294F892F210652BC00EF50F1 /* Assets.xcassets */,
 				294F8931210652BC00EF50F1 /* LaunchScreen.storyboard */,
 				294F8934210652BC00EF50F1 /* Info.plist */,
+				294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */,
 			);
 			path = SwiftApp;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				294F892B210652BB00EF50F1 /* ViewController.swift in Sources */,
+				294F895F21076BD300EF50F1 /* CustomCollectionViewCell.swift in Sources */,
 				294F8929210652BB00EF50F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SwiftApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
