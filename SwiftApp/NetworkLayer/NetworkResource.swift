@@ -15,7 +15,7 @@ class NetworkResource {
     static let sharedInstance = NetworkResource()
     
     //method to make service call to get the response
-    func serviceCall(requestURL: URL)  -> NSDictionary {
+    func serviceCall(requestURL: URL, completionHandler:@escaping (_ finalResponseDict: NSMutableDictionary) -> Void) {
         var responseDictionary: NSMutableDictionary = [:]
         var urlRequest = URLRequest(url: requestURL)
         urlRequest.httpMethod = "GET"
@@ -26,12 +26,12 @@ class NetworkResource {
                     let json = JSON.init(parseJSON:value)
                     if let responseDict = self.parseJSONResponse(jsonData: json) as? NSMutableDictionary {
                         responseDictionary = responseDict
+                        completionHandler(responseDictionary)
                     }
                 case .failure(let error):
                     print(error)
                 }
         }
-        return responseDictionary
     }
     
     //Parser, parse the json response and load it to an array using the model

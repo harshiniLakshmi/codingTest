@@ -51,10 +51,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //**************************************************
     
     private func initiateAPICall() {
-        responseDictionary = NetworkResource.sharedInstance.serviceCall(requestURL: apiUrl!)
-        //self.mainCollectionView.collectionViewLayout.prepare()
+        NetworkResource.sharedInstance.serviceCall(requestURL: apiUrl!) { (finalResponseDictionary) in
+            self.responseDictionary = finalResponseDictionary
+            self.mainCollectionView.reloadData()
+            self.navigationItem.title = (self.responseDictionary!["title"] as! String)
+        }
     }
-    
+
     //**************************************************
     // MARK: - Set Up UI
     //**************************************************
@@ -72,7 +75,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if let layout = mainCollectionView?.collectionViewLayout as? CustomCollectionViewLayout {
             layout.delegate = self
         }
-        // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
     
