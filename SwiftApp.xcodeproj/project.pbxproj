@@ -16,6 +16,8 @@
 		294F8949210652BC00EF50F1 /* SwiftAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F8948210652BC00EF50F1 /* SwiftAppUITests.swift */; };
 		294F895F21076BD300EF50F1 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */; };
 		294F896121076FC700EF50F1 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294F896021076FC700EF50F1 /* ResponseData.swift */; };
+		29B23CD1210EDF1F00D0DE57 /* NetworkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B23CD0210EDF1F00D0DE57 /* NetworkResource.swift */; };
+		29B23CD3210EE19D00D0DE57 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B23CD2210EE19D00D0DE57 /* CustomCollectionViewLayout.swift */; };
 		7672DE26C151691A418F237F /* Pods_SwiftApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995BECBC82D300AD313548A3 /* Pods_SwiftApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		294F894A210652BC00EF50F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		294F896021076FC700EF50F1 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		29B23CD0210EDF1F00D0DE57 /* NetworkResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResource.swift; sourceTree = "<group>"; };
+		29B23CD2210EE19D00D0DE57 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
 		995BECBC82D300AD313548A3 /* Pods_SwiftApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F89653FE45C5A484E9C478E3 /* Pods-SwiftApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftApp/Pods-SwiftApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,13 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				294F8928210652BB00EF50F1 /* AppDelegate.swift */,
-				294F892A210652BB00EF50F1 /* ViewController.swift */,
-				294F892C210652BB00EF50F1 /* Main.storyboard */,
+				29B23CCF210EDEA200D0DE57 /* NetworkLayer */,
+				29B23CCE210EDEA200D0DE57 /* Presentation */,
 				294F892F210652BC00EF50F1 /* Assets.xcassets */,
 				294F8931210652BC00EF50F1 /* LaunchScreen.storyboard */,
 				294F8934210652BC00EF50F1 /* Info.plist */,
-				294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */,
-				294F896021076FC700EF50F1 /* ResponseData.swift */,
 			);
 			path = SwiftApp;
 			sourceTree = "<group>";
@@ -136,6 +138,26 @@
 				294F894A210652BC00EF50F1 /* Info.plist */,
 			);
 			path = SwiftAppUITests;
+			sourceTree = "<group>";
+		};
+		29B23CCE210EDEA200D0DE57 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				294F892A210652BB00EF50F1 /* ViewController.swift */,
+				294F892C210652BB00EF50F1 /* Main.storyboard */,
+				294F895E21076BD300EF50F1 /* CustomCollectionViewCell.swift */,
+				29B23CD2210EE19D00D0DE57 /* CustomCollectionViewLayout.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		29B23CCF210EDEA200D0DE57 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				294F896021076FC700EF50F1 /* ResponseData.swift */,
+				29B23CD0210EDF1F00D0DE57 /* NetworkResource.swift */,
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		778DDCD1F4EE16D475BC2CE8 /* Pods */ = {
@@ -330,8 +352,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				294F892B210652BB00EF50F1 /* ViewController.swift in Sources */,
+				29B23CD1210EDF1F00D0DE57 /* NetworkResource.swift in Sources */,
 				294F895F21076BD300EF50F1 /* CustomCollectionViewCell.swift in Sources */,
 				294F896121076FC700EF50F1 /* ResponseData.swift in Sources */,
+				29B23CD3210EE19D00D0DE57 /* CustomCollectionViewLayout.swift in Sources */,
 				294F8929210652BB00EF50F1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
