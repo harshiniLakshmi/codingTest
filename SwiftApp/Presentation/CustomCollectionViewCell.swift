@@ -16,7 +16,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     enum Constants {
         static let reuseIdentifier = "CustomCollectionViewCell"
-        static let height: CGFloat = 100
+        static let height: CGFloat = 200
         
     }
     

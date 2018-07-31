@@ -10,3 +10,11 @@ target 'SwiftApp' do
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON'  
 end
+
+target 'SwiftAppTests' do
+    # Pods for SwiftAppTests
+    platform :ios, '9.0'
+    use_frameworks!
+    pod 'Alamofire', '~> 4.7'
+    pod 'SwiftyJSON'
+end
