@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import Alamofire
+import SwiftyJSON
 @testable import SwiftApp
 
 class SwiftAppTests: XCTestCase {
@@ -21,16 +23,34 @@ class SwiftAppTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testLoadJson() {
+        let apiUrl = URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")
+        let expectationDict = expectation(description: "Dictonary exists")
+        NetworkResource.sharedInstance.serviceCall(requestURL: apiUrl!) { (finalDict) in
+            XCTAssertNotNil(finalDict)
+            expectationDict.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
         }
     }
     
+    func testLoadJsonNegative() {
+
+        let expectationNoDict = expectation(description: "Dictonary doesn't exists")
+        NetworkResource.sharedInstance.serviceCall(requestURL: URL(string: "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json")!) { (finalDict) in
+            var dict: NSMutableDictionary? = finalDict
+            dict = nil
+            XCTAssertNil(dict)
+            expectationNoDict.fulfill()
+        }
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
 }

@@ -27,6 +27,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     let apiUrl = URL(string: Constants.apiUrl)
     var parsedJSONArray = [AnyObject]()
     var responseDictionary: NSDictionary?
+    class var isConnectedToInternet:Bool {
+        return NetworkReachabilityManager()!.isReachable
+    }
     
     //**************************************************
     // MARK: - IBOutlets
@@ -51,10 +54,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //**************************************************
     
     private func initiateAPICall() {
+        if ViewController.isConnectedToInternet {
         NetworkResource.sharedInstance.serviceCall(requestURL: apiUrl!) { (finalResponseDictionary) in
             self.responseDictionary = finalResponseDictionary
             self.mainCollectionView.reloadData()
             self.navigationItem.title = (self.responseDictionary!["title"] as! String)
+        }
+        } else {
+            self.showAlertFor(message: "Please check the internet connectivity and try again.", andTitle: "No Internet Connectivity")
         }
     }
 
@@ -86,5 +93,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func showAlertFor(message msg: String, andTitle title: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                print("default")
+            case .cancel:
+                print("cancel")
+            case .destructive:
+                print("destructive")
+                
+                
+            }}))
+        self.present(alert, animated: true, completion: nil)
     }
 }
