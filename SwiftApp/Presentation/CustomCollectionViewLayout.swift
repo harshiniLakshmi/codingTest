@@ -19,8 +19,11 @@ protocol CustomCollectionViewLayoutDelegate: class
 
 class CustomCollectionViewLayout: UICollectionViewLayout {
     
-    var delegate: CustomCollectionViewLayoutDelegate?
+    //**************************************************
+    // MARK: - Properties
+    //**************************************************
     
+    var delegate: CustomCollectionViewLayoutDelegate?
     var numberOfColumns: CGFloat = 2
     var cellPadding: CGFloat = 5.0
     
@@ -31,6 +34,10 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     }
     
     private var attributesCache = [CustomCollectionViewLayoutAttributes]()
+    
+    //**************************************************
+    // MARK: - Super class method
+    //**************************************************
     
     override func prepare()
     {

@@ -23,7 +23,7 @@ extension ViewController : CustomCollectionViewLayoutDelegate {
     }
     
     //***************************************************************
-    // MARK: - CollectionView Delegates and Datasource methods
+    // MARK: - CollectionView Delegate and Datasource methods
     //***************************************************************
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,9 +39,9 @@ extension ViewController : CustomCollectionViewLayoutDelegate {
         return UICollectionViewCell()
     }
     
-    //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    //        return CGSize(width: view.frame.width, height: CustomCollectionViewCell.Constants.height)
-    //    }
+    //***************************************************************
+    // MARK: - CollectionView Custom Layout Delegate methods
+    //***************************************************************
     
     func collectionView(collectionView: UICollectionView, heightForImageAt indexPath: IndexPath, with width: CGFloat) -> CGFloat
     {
