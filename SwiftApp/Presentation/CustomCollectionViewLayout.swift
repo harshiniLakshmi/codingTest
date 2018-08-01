@@ -24,7 +24,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     //**************************************************
     
     var delegate: CustomCollectionViewLayoutDelegate?
-    var numberOfColumns: CGFloat = 2
+    var numberOfColumns: CGFloat = (UIDevice.current.userInterfaceIdiom == .pad) ? 4 :2
     var cellPadding: CGFloat = 5.0
     
     private var contentHeight: CGFloat = 0.0
