@@ -89,8 +89,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @objc private func refreshData(_ sender: Any) {
-        mainCollectionView.reloadData()
-        initiateAPICall()
+        if ViewController.isConnectedToInternet {
+            NetworkResource.sharedInstance.serviceCall(requestURL: apiUrl!) { [weak self] (finalResponseDictionary) in
+                self?.responseDictionary = finalResponseDictionary
+                self?.mainCollectionView.reloadData()
+                self?.navigationItem.title = (self?.responseDictionary!["title"] as! String)
+                self?.refreshControl.endRefreshing()
+            }
+        }
         self.refreshControl.endRefreshing()
     }
     
