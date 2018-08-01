@@ -65,9 +65,12 @@
                                         </constraints>
                                         <size key="customSize" width="183" height="431"/>
                                         <connections>
+                                            <outlet property="bottomPaddingConstraint" destination="rPP-65-O5L" id="3tm-v7-hET"/>
                                             <outlet property="cellDEscription" destination="wvm-Hy-dtA" id="mqW-zL-vWW"/>
                                             <outlet property="cellTitle" destination="XC0-Jx-v1j" id="p7V-zY-7jV"/>
                                             <outlet property="iconImageView" destination="kC3-iM-FoC" id="8vz-Dt-vS1"/>
+                                            <outlet property="imageViewHeight" destination="tLA-VR-HnV" id="tem-S5-y9E"/>
+                                            <outlet property="topPaddingConstraint" destination="bh2-gJ-5jE" id="LIk-sS-4yf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

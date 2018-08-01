@@ -15,16 +15,17 @@ class NetworkResource {
     static let sharedInstance = NetworkResource()
     
     //method to make service call to get the response
-    func serviceCall(requestURL: URL, completionHandler:@escaping (_ finalResponseDict: NSMutableDictionary) -> Void) {
+    func serviceCall(requestURL: URL, completionHandler: @escaping (_ finalResponseDict: NSMutableDictionary) -> Void) {
+//        __weak NetworkResource *weakSelf = self
         var responseDictionary: NSMutableDictionary = [:]
         var urlRequest = URLRequest(url: requestURL)
         urlRequest.httpMethod = "GET"
         Alamofire.request(urlRequest)
-            .responseString { response in
+            .responseString {[weak self] response in
                 switch response.result {
                 case .success(let value):
                     let json = JSON.init(parseJSON:value)
-                    if let responseDict = self.parseJSONResponse(jsonData: json) as? NSMutableDictionary {
+                    if let responseDict = self?.parseJSONResponse(jsonData: json) as? NSMutableDictionary {
                         responseDictionary = responseDict
                         completionHandler(responseDictionary)
                     }

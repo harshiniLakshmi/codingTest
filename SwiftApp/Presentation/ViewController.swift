@@ -30,6 +30,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     class var isConnectedToInternet:Bool {
         return NetworkReachabilityManager()!.isReachable
     }
+    var imageHeight: CGFloat?
+    var topPadding: CGFloat?
+    var bottomPadding: CGFloat?
     
     //**************************************************
     // MARK: - IBOutlets
@@ -55,10 +58,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     private func initiateAPICall() {
         if ViewController.isConnectedToInternet {
-        NetworkResource.sharedInstance.serviceCall(requestURL: apiUrl!) { (finalResponseDictionary) in
-            self.responseDictionary = finalResponseDictionary
-            self.mainCollectionView.reloadData()
-            self.navigationItem.title = (self.responseDictionary!["title"] as! String)
+        NetworkResource.sharedInstance.serviceCall(requestURL: apiUrl!) { [weak self] (finalResponseDictionary) in
+            self?.responseDictionary = finalResponseDictionary
+            self?.mainCollectionView.reloadData()
+            self?.navigationItem.title = (self?.responseDictionary!["title"] as! String)
         }
         } else {
             self.showAlertFor(message: "Please check the internet connectivity and try again.", andTitle: "No Internet Connectivity")
@@ -87,12 +90,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @objc private func refreshData(_ sender: Any) {
         mainCollectionView.reloadData()
+        initiateAPICall()
         self.refreshControl.endRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.mainCollectionView.collectionViewLayout.prepare()
+        self.mainCollectionView.reloadData()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
     }
     
     func showAlertFor(message msg: String, andTitle title: String) {

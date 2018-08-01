@@ -27,6 +27,9 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDEscription: UILabel!
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var topPaddingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomPaddingConstraint: NSLayoutConstraint!
     
     //**************************************************
     // MARK: - Properties
@@ -60,13 +63,13 @@ class CustomCollectionViewCell: UICollectionViewCell {
      method to download the image asynchronously and then load in the imageView
      */
     private func downloadImageAndLoadFrom(imageUrl: URL) {
-        getDataFromUrl(url: imageUrl) { data, response, error in
+        getDataFromUrl(url: imageUrl) { [weak self] data, response, error in
             guard let data = data, error == nil else {
-                self.loadDefaultImage()
+                self?.loadDefaultImage()
                 return
             }
             DispatchQueue.main.async() {
-                self.iconImageView.image = UIImage(data: data)
+                self?.iconImageView.image = UIImage(data: data)
             }
         }
     }
@@ -75,10 +78,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
      method to get the data of the image URL in the response
      */
     private func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let httpResponse = response as? HTTPURLResponse {
                 if (httpResponse.statusCode != 200) {
-                    self.loadDefaultImage()
+                    self?.loadDefaultImage()
                 }
             }
             completion(data, response, error)
@@ -93,5 +96,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
         DispatchQueue.main.async() {
             self.iconImageView.image = UIImage(named: "default")
         }
+    }
+    
+    func getConstraintConstants() -> (
+        CGFloat, CGFloat, CGFloat) {
+            let imageViewHeight = self.imageViewHeight.constant
+            let topPadding = self.topPaddingConstraint.constant
+            let bottomPadding = self.bottomPaddingConstraint.constant
+            
+            return (imageViewHeight, topPadding, bottomPadding)
     }
 }
