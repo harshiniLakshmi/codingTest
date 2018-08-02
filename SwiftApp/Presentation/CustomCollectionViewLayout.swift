@@ -29,8 +29,11 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     
     private var contentHeight: CGFloat = 0.0
     private var contentWidth: CGFloat {
-        let insets = collectionView!.contentInset
-        return (collectionView!.bounds.width - (insets.left + insets.right))
+        guard let collectionView = collectionView else {
+            return 0
+        }
+        let insets = collectionView.contentInset
+        return (UIScreen.main.bounds.size.width - (insets.left + insets.right))
     }
     
     private var attributesCache = [CustomCollectionViewLayoutAttributes]()
@@ -98,6 +101,18 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         
         return layoutAttributes
     }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+    
+    override func invalidateLayout() {
+        super.invalidateLayout()
+        
+        attributesCache = []
+        contentHeight = 0
+    }
+    
 }
 
 class CustomCollectionViewLayoutAttributes: UICollectionViewLayoutAttributes

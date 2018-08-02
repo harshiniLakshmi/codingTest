@@ -27,9 +27,10 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDEscription: UILabel!
-    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var topPaddingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomPaddingConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+//    @IBOutlet weak var topPaddingConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var bottomPaddingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerView: UIView!
     
     //**************************************************
     // MARK: - Properties
@@ -41,6 +42,13 @@ class CustomCollectionViewCell: UICollectionViewCell {
     //**************************************************
     // MARK: - Methods
     //**************************************************
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        containerView.frame = self.bounds
+        containerView.layer.cornerRadius = 4
+        containerView.layer.masksToBounds = true
+    }
     
     /**
      load the content of each cell based on the parsed info received from the controller
@@ -98,12 +106,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func getConstraintConstants() -> (
-        CGFloat, CGFloat, CGFloat) {
-            let imageViewHeight = self.imageViewHeight.constant
-            let topPadding = self.topPaddingConstraint.constant
-            let bottomPadding = self.bottomPaddingConstraint.constant
-            
-            return (imageViewHeight, topPadding, bottomPadding)
-    }
+//    func getConstraintConstants() -> (
+//        CGFloat, CGFloat, CGFloat) {
+//            let imageViewHeight = self.imageViewHeight.constant
+//            let topPadding = self.topPaddingConstraint.constant
+//            let bottomPadding = self.bottomPaddingConstraint.constant
+//            
+//            return (imageViewHeight, topPadding, bottomPadding)
+//    }
 }

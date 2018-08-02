@@ -33,18 +33,18 @@ extension ViewController : CustomCollectionViewLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.Constants.reuseIdentifier, for: indexPath) as? CustomCollectionViewCell {
             cell.configureCell(withData: items[indexPath.row] as! ResponseData)
-            updateConstraints(cell: cell)
+//            updateConstraints(cell: cell)
             self.mainCollectionView.collectionViewLayout.prepare()
             return cell
         }
         return UICollectionViewCell()
     }
     
-    func updateConstraints(cell: CustomCollectionViewCell) {
-        imageHeight = cell.getConstraintConstants().0
-        topPadding = cell.getConstraintConstants().1
-        bottomPadding = cell.getConstraintConstants().2
-    }
+//    func updateConstraints(cell: CustomCollectionViewCell) {
+//        imageHeight = cell.getConstraintConstants().0
+//        topPadding = cell.getConstraintConstants().1
+//        bottomPadding = cell.getConstraintConstants().2
+//    }
     
     //***************************************************************
     // MARK: - CollectionView Custom Layout Delegate methods
@@ -60,7 +60,7 @@ extension ViewController : CustomCollectionViewLayoutDelegate {
         if let currentData = items[indexPath.row] as? ResponseData {
             let topPadding = self.topPadding ?? 4.0
             let bottomPadding = self.bottomPadding ?? 4.0
-            let captionFont = UIFont.systemFont(ofSize: 15)
+            let captionFont = UIFont.systemFont(ofSize: 18.0, weight: .bold)
             let captionHeight = self.height(for: currentData.title!, with: captionFont, width: width)
             let height = topPadding + captionHeight + bottomPadding
             return height
@@ -84,10 +84,16 @@ extension ViewController : CustomCollectionViewLayoutDelegate {
     
     func height(for text: String, with font: UIFont, width: CGFloat) -> CGFloat
     {
-        let nsstring = NSString(string: text)
+        let someString = NSString(string: text)
         let maxHeight = CGFloat(300.0)
         let textAttributes = [NSAttributedStringKey.font : font]
-        let boundingRect = nsstring.boundingRect(with: CGSize(width: width, height: maxHeight), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
+        let boundingRect = someString.boundingRect(with: CGSize(width: width, height: maxHeight), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
         return ceil(boundingRect.height)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        self.mainCollectionView.collectionViewLayout.invalidateLayout()
+        self.mainCollectionView.layoutIfNeeded()
     }
 }
