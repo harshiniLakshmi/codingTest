@@ -28,8 +28,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDEscription: UILabel!
 //    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
-//    @IBOutlet weak var topPaddingConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var bottomPaddingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topPaddingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomPaddingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     
     //**************************************************
@@ -106,12 +106,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
         }
     }
     
-//    func getConstraintConstants() -> (
-//        CGFloat, CGFloat, CGFloat) {
-//            let imageViewHeight = self.imageViewHeight.constant
-//            let topPadding = self.topPaddingConstraint.constant
-//            let bottomPadding = self.bottomPaddingConstraint.constant
-//            
-//            return (imageViewHeight, topPadding, bottomPadding)
-//    }
+    func getConstraintConstants() -> (
+        CGFloat, CGFloat) {
+//            let imageViewHeight = self.imageViewHeight.constant ?? 200.0
+            let topPadding = self.topPaddingConstraint.constant
+            let bottomPadding = self.bottomPaddingConstraint.constant
+            
+            return (topPadding, bottomPadding)
+    }
 }
