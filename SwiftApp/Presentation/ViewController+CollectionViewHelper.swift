@@ -33,18 +33,18 @@ extension ViewController : CustomCollectionViewLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.Constants.reuseIdentifier, for: indexPath) as? CustomCollectionViewCell {
             cell.configureCell(withData: items[indexPath.row] as! ResponseData)
-//            updateConstraints(cell: cell)
+            updateConstraints(cell: cell)
             self.mainCollectionView.collectionViewLayout.prepare()
             return cell
         }
         return UICollectionViewCell()
     }
     
-//    func updateConstraints(cell: CustomCollectionViewCell) {
+    func updateConstraints(cell: CustomCollectionViewCell) {
 //        imageHeight = cell.getConstraintConstants().0
-//        topPadding = cell.getConstraintConstants().1
-//        bottomPadding = cell.getConstraintConstants().2
-//    }
+        topPadding = cell.getConstraintConstants().0
+        bottomPadding = cell.getConstraintConstants().1
+    }
     
     //***************************************************************
     // MARK: - CollectionView Custom Layout Delegate methods

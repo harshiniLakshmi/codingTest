@@ -79,10 +79,12 @@
                                         </constraints>
                                         <size key="customSize" width="183" height="326"/>
                                         <connections>
+                                            <outlet property="bottomPaddingConstraint" destination="Ck7-1l-T5o" id="ITf-WK-VoQ"/>
                                             <outlet property="cellDEscription" destination="AZb-zh-fnI" id="vMu-jq-zBh"/>
                                             <outlet property="cellTitle" destination="dZn-KE-c1c" id="N7z-rp-lSp"/>
                                             <outlet property="containerView" destination="EeE-LV-f6Y" id="aLu-XT-xeq"/>
                                             <outlet property="iconImageView" destination="5EO-PZ-haH" id="txE-Ar-1uW"/>
+                                            <outlet property="topPaddingConstraint" destination="PAe-Rm-kVW" id="YWl-kE-88L"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
