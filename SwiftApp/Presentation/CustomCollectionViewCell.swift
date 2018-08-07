@@ -27,9 +27,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!
     @IBOutlet weak var cellDEscription: UILabel!
-//    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var topPaddingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomPaddingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     
     //**************************************************
@@ -38,16 +35,53 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     var imageURL:String?
     
-    
     //**************************************************
     // MARK: - Methods
     //**************************************************
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUpConstraints()
         containerView.frame = self.bounds
         containerView.layer.cornerRadius = 4
         containerView.layer.masksToBounds = true
+    }
+    
+    func setUpConstraints() {
+        
+        let views: [String: Any] = [
+            "containerView":containerView,
+            "iconImageView":iconImageView,
+            "cellTitle":cellTitle,
+            "cellDEscription":cellDEscription
+            ]
+        
+        self.containerView.translatesAutoresizingMaskIntoConstraints = false
+        self.iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.cellTitle.translatesAutoresizingMaskIntoConstraints = false
+        self.cellDEscription.translatesAutoresizingMaskIntoConstraints = false
+        
+        var allConstraints: [NSLayoutConstraint] = []
+        
+        let containerViewLeadingConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[containerView]-|", options: .alignAllLeading, metrics: nil, views: views)
+        allConstraints += containerViewLeadingConstraint
+        
+        let containerViewTopConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[containerView]-|", options: .alignAllTop, metrics: nil, views: views)
+        allConstraints += containerViewTopConstraint
+        
+        let imageViewLeadingConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[iconImageView]-|", options: .alignAllLeading, metrics: nil, views: views)
+        allConstraints += imageViewLeadingConstraint
+        
+        let imageViewTopConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[iconImageView]-4-[cellTitle]-4-[cellDEscription]-4-|", options: .alignAllLeft, metrics: nil, views: views)
+        allConstraints += imageViewTopConstraint
+        
+        let cellTitleLeadingConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[cellTitle]-|", options: .alignAllLeading, metrics: nil, views: views)
+        allConstraints += cellTitleLeadingConstraint
+        
+        let cellDescriptionLeadingConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[cellDEscription]-|", options: .alignAllLeading, metrics: nil, views: views)
+        allConstraints += cellDescriptionLeadingConstraint
+        
+        NSLayoutConstraint.activate(allConstraints)
     }
     
     /**
@@ -104,14 +138,5 @@ class CustomCollectionViewCell: UICollectionViewCell {
         DispatchQueue.main.async() {
             self.iconImageView.image = UIImage(named: "default")
         }
-    }
-    
-    func getConstraintConstants() -> (
-        CGFloat, CGFloat) {
-//            let imageViewHeight = self.imageViewHeight.constant ?? 200.0
-            let topPadding = self.topPaddingConstraint.constant
-            let bottomPadding = self.bottomPaddingConstraint.constant
-            
-            return (topPadding, bottomPadding)
     }
 }
