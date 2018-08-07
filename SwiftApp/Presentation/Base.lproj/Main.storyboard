@@ -51,16 +51,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.65558209192694306" green="0.2547227203666152" blue="0.003666458554665544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="AZb-zh-fnI" secondAttribute="bottom" constant="4" id="1h9-AC-23k"/>
-                                                        <constraint firstAttribute="trailing" secondItem="dZn-KE-c1c" secondAttribute="trailing" constant="4" id="6R0-hC-QKd"/>
-                                                        <constraint firstItem="AZb-zh-fnI" firstAttribute="top" secondItem="dZn-KE-c1c" secondAttribute="bottom" constant="4" id="Ck7-1l-T5o"/>
-                                                        <constraint firstAttribute="trailing" secondItem="AZb-zh-fnI" secondAttribute="trailing" constant="4" id="EIK-Mi-65t"/>
-                                                        <constraint firstAttribute="trailing" secondItem="5EO-PZ-haH" secondAttribute="trailing" id="M4c-1O-WPb"/>
-                                                        <constraint firstItem="dZn-KE-c1c" firstAttribute="top" secondItem="5EO-PZ-haH" secondAttribute="bottom" constant="4" id="PAe-Rm-kVW"/>
-                                                        <constraint firstItem="5EO-PZ-haH" firstAttribute="top" secondItem="EeE-LV-f6Y" secondAttribute="top" id="Yqd-KB-TVa"/>
-                                                        <constraint firstItem="5EO-PZ-haH" firstAttribute="leading" secondItem="EeE-LV-f6Y" secondAttribute="leading" id="cEh-vI-zpD"/>
-                                                        <constraint firstItem="AZb-zh-fnI" firstAttribute="leading" secondItem="EeE-LV-f6Y" secondAttribute="leading" constant="4" id="qh8-7J-Oyg"/>
-                                                        <constraint firstItem="dZn-KE-c1c" firstAttribute="leading" secondItem="EeE-LV-f6Y" secondAttribute="leading" constant="4" id="rkf-zk-t5j"/>
+                                                        <constraint firstAttribute="bottom" secondItem="AZb-zh-fnI" secondAttribute="bottom" constant="4" placeholder="YES" id="1h9-AC-23k"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dZn-KE-c1c" secondAttribute="trailing" constant="4" placeholder="YES" id="6R0-hC-QKd"/>
+                                                        <constraint firstItem="AZb-zh-fnI" firstAttribute="top" secondItem="dZn-KE-c1c" secondAttribute="bottom" constant="4" placeholder="YES" id="Ck7-1l-T5o"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AZb-zh-fnI" secondAttribute="trailing" constant="4" placeholder="YES" id="EIK-Mi-65t"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5EO-PZ-haH" secondAttribute="trailing" placeholder="YES" id="M4c-1O-WPb"/>
+                                                        <constraint firstItem="dZn-KE-c1c" firstAttribute="top" secondItem="5EO-PZ-haH" secondAttribute="bottom" constant="4" placeholder="YES" id="PAe-Rm-kVW"/>
+                                                        <constraint firstItem="5EO-PZ-haH" firstAttribute="top" secondItem="EeE-LV-f6Y" secondAttribute="top" placeholder="YES" id="Yqd-KB-TVa"/>
+                                                        <constraint firstItem="5EO-PZ-haH" firstAttribute="leading" secondItem="EeE-LV-f6Y" secondAttribute="leading" placeholder="YES" id="cEh-vI-zpD"/>
+                                                        <constraint firstItem="AZb-zh-fnI" firstAttribute="leading" secondItem="EeE-LV-f6Y" secondAttribute="leading" constant="4" placeholder="YES" id="qh8-7J-Oyg"/>
+                                                        <constraint firstItem="dZn-KE-c1c" firstAttribute="leading" secondItem="EeE-LV-f6Y" secondAttribute="leading" constant="4" placeholder="YES" id="rkf-zk-t5j"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -72,19 +72,17 @@
                                         </view>
                                         <color key="backgroundColor" red="0.8823469883419689" green="0.3451593348534055" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="EeE-LV-f6Y" firstAttribute="leading" secondItem="u2n-lh-Y5Z" secondAttribute="leading" id="KxP-ef-h6H"/>
-                                            <constraint firstAttribute="trailing" secondItem="EeE-LV-f6Y" secondAttribute="trailing" id="YAr-C1-0pK"/>
-                                            <constraint firstAttribute="bottom" secondItem="EeE-LV-f6Y" secondAttribute="bottom" id="g7U-qf-p7U"/>
-                                            <constraint firstItem="EeE-LV-f6Y" firstAttribute="top" secondItem="u2n-lh-Y5Z" secondAttribute="top" id="wSU-oO-ZFv"/>
+                                            <constraint firstItem="EeE-LV-f6Y" firstAttribute="leading" secondItem="u2n-lh-Y5Z" secondAttribute="leading" placeholder="YES" id="KxP-ef-h6H"/>
+                                            <constraint firstAttribute="trailing" secondItem="EeE-LV-f6Y" secondAttribute="trailing" placeholder="YES" id="YAr-C1-0pK"/>
+                                            <constraint firstAttribute="bottom" secondItem="EeE-LV-f6Y" secondAttribute="bottom" placeholder="YES" id="g7U-qf-p7U"/>
+                                            <constraint firstItem="EeE-LV-f6Y" firstAttribute="top" secondItem="u2n-lh-Y5Z" secondAttribute="top" placeholder="YES" id="wSU-oO-ZFv"/>
                                         </constraints>
                                         <size key="customSize" width="183" height="326"/>
                                         <connections>
-                                            <outlet property="bottomPaddingConstraint" destination="Ck7-1l-T5o" id="ITf-WK-VoQ"/>
                                             <outlet property="cellDEscription" destination="AZb-zh-fnI" id="vMu-jq-zBh"/>
                                             <outlet property="cellTitle" destination="dZn-KE-c1c" id="N7z-rp-lSp"/>
                                             <outlet property="containerView" destination="EeE-LV-f6Y" id="aLu-XT-xeq"/>
                                             <outlet property="iconImageView" destination="5EO-PZ-haH" id="txE-Ar-1uW"/>
-                                            <outlet property="topPaddingConstraint" destination="PAe-Rm-kVW" id="YWl-kE-88L"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
